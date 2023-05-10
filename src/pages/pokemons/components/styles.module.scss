@@ -1,0 +1,22 @@
+.wrapper {
+    padding:0 15px;
+}
+.pokemons_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.pokemon_item {
+    padding:10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.pagination {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}

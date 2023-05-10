@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 15px;
+}
+
+.form_wrapper {
+    border:1px solid balck;
+    margin:50px 350px;
+    display:flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.errors {
+    color: red;
+}
+
+.Button {
+    color: black;
+  }
+
