@@ -1,0 +1,22 @@
+.title {
+    margin: 150px 100px 40px 100px;
+    width: 400px;
+};
+
+h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+
+};
+
+.buttons__wrapper {
+    width: 400px;
+    padding: 0px 100px 300px 100px;
+
+    &_auth {
+        display: flex;
+        gap: 20px;
+    }
+};

@@ -1,0 +1,13 @@
+.buttons_wrapper {
+    display: flex;
+    gap:5px;
+}
+.button_card {
+    color:white;
+    background-color:black;
+
+    &:hover {
+        background-color: khaki;
+        color:black;
+    }
+}

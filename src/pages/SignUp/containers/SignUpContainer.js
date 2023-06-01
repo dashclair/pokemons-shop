@@ -6,10 +6,13 @@ import SignUpLayout from "../componens"
 import { signUpValidationSchema } from "../validation"
 import useFetching from "../../../hooks/useFetching"
 import { signUp } from "../api"
+import { usePassword } from "../../../hooks"
 
 const SignUpContainer = () => {
   const {data, errors,  handleDataLoad} = useFetching(signUp);
   const navigate = useNavigate();
+
+  const {showPassword, handleClickShowPassword, handleMouseDownPassword} = usePassword()
   
   const formik = useFormik({
         initialValues: {
@@ -29,8 +32,8 @@ const SignUpContainer = () => {
         }
     })
 
-      console.log('data',data);
-      console.log('errors',errors);
+    const isDisabled = !(formik.values.firstName && formik.values.lastName && formik.values.email && formik.values.gender && formik.values.phone 
+      &&formik.values.password && formik.values.confirmPassword);
 
     return (
         <SignUpLayout
@@ -62,6 +65,10 @@ const SignUpContainer = () => {
         data = {data}
         errors={errors}
         navigate = {navigate}
+        showPassword={showPassword}
+        handleClickShowPassword={handleClickShowPassword}
+        handleMouseDownPassword={handleMouseDownPassword}
+        isDisabled={isDisabled}
         />
     )
 }

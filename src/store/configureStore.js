@@ -1,12 +1,19 @@
 import { configureStore} from "@reduxjs/toolkit";
-import signInReducer from '../pages/SignIn/reducers';
-import getPokemonsReducer from '../pages/pokemons/reducers';
-import pokemonDetailsReducer from '../pages/pokemonDetails/reducers'
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
+
+import { reducers } from "./rootReducer";
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['auth']
+  };
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-    reducer: {
-        auth:signInReducer,
-        pokemons:getPokemonsReducer,
-        pokemonsDetails: pokemonDetailsReducer
-    },
-  })
+    reducer:persistedReducer,
+  });
+
+  export const persistor = persistStore(store)

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { mainApi } from "../../../config/mainApi";
 
+import { mainApi } from "../../../config/mainApi";
 
 const getPokemons = ({page, limit}) => mainApi.get('/products', {
     params:{
@@ -17,4 +17,4 @@ export const getPokemonsAsyncThunk = createAsyncThunk('pokemons/getPokemons', as
     } catch(error) {
         return rejectWithValue(error.response.data.message)
     }
-})
+});

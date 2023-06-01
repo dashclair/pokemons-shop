@@ -2,12 +2,12 @@ import * as Yup from 'yup';
 
 export const signUpValidationSchema = Yup.object({
     firstName: Yup.string()
-      .required('Обязательное поле'),
+      .required('Required'),
     lastName: Yup.string()
-      .required('Обязательное поле'),
-    email: Yup.string().email('Недействительный email').required('Обязательное поле'),
-    gender: Yup.string().min(1, 'Не менее 1 символа').required('Обязательное поле'),
-    phone:Yup.string().required('Обязательное поле'),
-    password: Yup.string().min(8, 'Должно быть не менее 8 символов').max('20','Не более 20 символов').required('Обязательное поле'),
+      .required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    gender: Yup.string().min(1, 'At least 1 character').required('Required'),
+    phone:Yup.string().required('Required'),
+    password: Yup.string().min(8, 'At least 8 characters').max('20','No more than 20 characters').required('Required'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Your passwords do not match.'),
   })

@@ -1,13 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { pokemonsApiConfig } from "../../../config/pokemonsApi";
-import { pick } from "lodash";
 
-const getPokemonByName = (name) => pokemonsApiConfig.get(`/pokemon/${name}`);
+import { mainApi } from "../../../config/mainApi";
 
-export const getPokemonDetailsThunk = createAsyncThunk('pokemonDetails/getDetailsByName', async (name) => {
-    
-    const response = await getPokemonByName(name)
+const getPokemonByName = (id)=> mainApi.get(`/products/${id}`);
 
-    console.log(response.data)
-    return pick(response.data, ['name', 'stats', 'sprites'])
-})
+export const getPokemonDetailsThunk = createAsyncThunk('pokemonDetails/getDetailsByName', async(id, {rejectWithValue})=>{
+    try {
+        const response = await getPokemonByName(id);
+
+        return response.data
+    } catch (error) {
+        return rejectWithValue(error.response.data.message)
+    }
+});

@@ -3,7 +3,6 @@ import { mainApi } from "../../../config/mainApi";
 import LocalStorageService from "../../../services/LocalStorageService";
 
 export const signInRequest = (body) => {
-    console.log('BODY',body)
     return mainApi.post('/auth/signIn', body);
 }
 
@@ -13,11 +12,10 @@ export const signInThunk = createAsyncThunk('auth/signIn', async (payload, {reje
 
         const {accessToken, ...profileData} = data
 
-        console.log('DATA',data);
+        console.log('token',accessToken);
 
         LocalStorageService.saveToken(accessToken)
 
-        console.log('PROFILEDATA',profileData);
         return profileData;
     } catch (error) {
         return rejectWithValue(error.response.data.message)

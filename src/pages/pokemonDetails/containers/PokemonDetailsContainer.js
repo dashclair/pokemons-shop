@@ -1,29 +1,28 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { nameSelector, spritesSelector, statsSelector } from "../selectors"
+import { abilitiesSelector, imageSelector, loadingDetailsSelector, nameSelector, priceSelector, statsSelector } from "../selectors"
 import PokemonDetailsLayout from "../components/PokemonDetailsLayout";
 import { getPokemonDetailsThunk } from "../api";
-import { ROUTE_NAMES } from "../../../routes/routeNames";
+import { createStatLists } from "../utils/createStatList";
+import { createAbilityList } from "../utils/createAbilityList";
 
 
 const PokemonDetailsContainer = () => {
+    
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    
     const {pokemonName} = useParams();
 
-    const handleAddCart = () =>{
-        return navigate(ROUTE_NAMES.CART)
-    }
-
-    const goBack = () => {
-		navigate(-1);
-	}
-
+    const loadingDetails = useSelector(loadingDetailsSelector)
     const name = useSelector(nameSelector);
     const stats = useSelector(statsSelector);
-    const sprites = useSelector(spritesSelector);
+    const abilities = useSelector(abilitiesSelector);
+    const image = useSelector(imageSelector);
+    const statsList = createStatLists(stats)
+    const abilitiesList = createAbilityList(abilities)
+    const price = useSelector(priceSelector);
 
     useEffect(()=>{
         dispatch(getPokemonDetailsThunk(pokemonName))
@@ -32,10 +31,12 @@ const PokemonDetailsContainer = () => {
     return (
         <PokemonDetailsLayout
         name = {name}
-        image = {sprites?.front_default}
-        stats = {stats}
-        handleChange={handleAddCart}
-        goBack = {goBack}
+        stats = {statsList}
+        image = {image}
+        abilities = {abilitiesList}
+        price = {price}
+        loadingDetails={loadingDetails}
+        
         />
     )
 }

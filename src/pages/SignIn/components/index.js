@@ -1,8 +1,17 @@
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { Navigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
+import InputAdornment from '@mui/material/InputAdornment';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import IconButton from '@mui/material/IconButton';
+import PropTypes from 'prop-types';
+
 import { ROUTE_NAMES } from "../../../routes/routeNames";
+import CustomButton from "../../../components/CustomButton";
 
 import styles from './styles.module.scss';
+
 
 const SignInLayout = ({
     handleSubmit,
@@ -10,13 +19,18 @@ const SignInLayout = ({
     valueEmail,
     valuePassword,
     isAuthenticated,
-    error
+    error,
+    showPassword,
+    handleClickShowPassword,
+    handleMouseDownPassword
+
 }) => {
+
     return (
         < div className={styles.wrapper}>
                 <form className = {styles.form_wrapper} onSubmit = {handleSubmit}>
                     <h2 className={styles.title}>Log in</h2>
-                    {error && (<h4 className={styles.errors}>{error}</h4>)}
+                    {error && (<Alert severity="error">{error}!</Alert>)}
 
                 <TextField
                 fullWidth
@@ -33,18 +47,43 @@ const SignInLayout = ({
                     id="password"
                     name="password"
                     label="Password"
-                    type = "password"
+                    type={showPassword ? "text" : "password"}
                     value={valuePassword}
                     onChange={handleChange}
+                    InputProps={{ 
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                            >
+                              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
                 />
     
-                <Button type="submit" variant = 'contained' sx={{ backgroundColor: 'black'}}> sign in </Button>
+                <CustomButton type="submit" sx={{ backgroundColor: 'black'}} text='sign in' size = 'medium'/>
                 </form>
 
                 {isAuthenticated &&  (<Navigate to={ROUTE_NAMES.POKEMONS}/>)}
 
         </div>
     )
+};
+
+SignInLayout.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func,
+  valueEmail: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
+  valuePassword: PropTypes.string,
+  showPassword: PropTypes.string,
+  handleClickShowPassword: PropTypes.func,
+  handleMouseDownPassword: PropTypes.func,
+
 }
 
 export default SignInLayout

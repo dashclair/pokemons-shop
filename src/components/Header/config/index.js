@@ -9,7 +9,7 @@ export const NAVIGATION_ITEMS = {
         },
 
         {
-            title:'Sign In',
+            title:'Log In',
             path: ROUTE_NAMES.SIGN_IN
         },
     ],

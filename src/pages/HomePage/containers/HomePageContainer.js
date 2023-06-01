@@ -1,17 +1,35 @@
 import { useSelector } from "react-redux"
-import SignUpContainer from "../../SignUp/containers/SignUpContainer"
+import { useNavigate } from "react-router-dom"
+import { useCallback } from "react"
+
 import { isAuthenticatedSelector } from "../../SignIn/selectors"
-import PokemonsLayout from "../../pokemons/components"
+import HomePageLayout from "../components/HomePageLayout"
+import { ROUTE_NAMES } from "../../../routes/routeNames"
 
 const HomePageContainer = () => {
-    const isAuthenticated = useSelector(isAuthenticatedSelector)
+    const isSignedIn = useSelector(isAuthenticatedSelector);
+
+    const navigate = useNavigate();
+
+    const handleGoToPokemons = useCallback(()=> {
+        navigate(ROUTE_NAMES.POKEMONS)
+    },[navigate]);
+
+    const handleGoToSignUp = useCallback(()=> {
+        navigate(ROUTE_NAMES.SIGN_UP)
+    }, [navigate]);
+
+    const handleGoToSignIn = useCallback(()=>{
+        navigate(ROUTE_NAMES.SIGN_IN)
+    }, [navigate]);
 
     return (
-        <div>
-
-            <h1 style = {{padding:"15px"}}>Welcome to PokeShop</h1>
-
-        </div>
+        <HomePageLayout
+        isSignedIn={isSignedIn}
+        handleGoToPokemons={handleGoToPokemons}
+        handleGoToSignUp={ handleGoToSignUp}
+        handleGoToSignIn = {handleGoToSignIn}
+        />
     )
 }
 

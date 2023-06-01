@@ -4,10 +4,13 @@ import SignInLayout from "../components"
 import useForm from "../../../hooks/useForm"
 import { signInThunk } from "../api"
 import { errorSelector, isAuthenticatedSelector } from "../selectors"
+import { usePassword } from "../../../hooks"
 
 const SignInContainer = () => {
-    const isAuthenticated = useSelector(isAuthenticatedSelector)
-    const error = useSelector(errorSelector)
+    const isAuthenticated = useSelector(isAuthenticatedSelector);
+    const error = useSelector(errorSelector);
+
+    const {showPassword, handleClickShowPassword, handleMouseDownPassword} = usePassword()
 
     const dispatch = useDispatch()
     const {form, handleChange} = useForm({
@@ -28,6 +31,9 @@ const SignInContainer = () => {
         valuePassword = {form.password}
         handleChange = {handleChange}
         handleSubmit = {handleSubmit}
+        showPassword={showPassword}
+        handleClickShowPassword={handleClickShowPassword}
+        handleMouseDownPassword={handleMouseDownPassword}
         />
     )
 } 

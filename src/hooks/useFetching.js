@@ -9,6 +9,7 @@ const useFetching = (requestFunction) => {
         (async()=>{
             try {
                 setLoading(true)
+                setErrors(null);
                 const response = await requestFunction(...args);
 
                 setData(response)

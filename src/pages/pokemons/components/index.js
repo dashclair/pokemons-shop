@@ -1,31 +1,55 @@
-import { Link } from "react-router-dom";
-import { ROUTE_NAMES } from "../../../routes/routeNames";
-import { startCase } from "lodash";
+import PropTypes from 'prop-types';
+
+import MaterialPagination from "../../../components/MaterialPagination";
+import PokeCard from "../../../components/PokeCard";
+import Spinner from '../../../components/Spinner';
 
 import styles from './styles.module.scss';
-import MaterialPagination from "../../../components/MaterialPagination";
 
 const PokemonsLayout = ({
     pokemons,
     errors,
     page,
     handlePageChange,
+    handleLearnMore,
+    addItemToCart,
+    cartItem,
+    isLoading
+
 }) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper}> 
             {errors && <p>{errors}</p>}
-            <div className = {styles.pokemons_wrapper}>{pokemons.map(({id,image, name, price})=>{
-                return (<Link key = {id} to = {`${ROUTE_NAMES.POKEMONS}/${name}`} className={styles.pokemon_item}>
-                    <img src={image} alt = "" width = {250} height = {250}/>
-                    <div>{startCase(name)}</div>
-                    <p>{price}</p>
-                </Link>)
-            })}</div>
+            {isLoading ? <Spinner/> : 
+            <div className={styles.wrapper_item}>
+                <div className = {styles.pokemons_wrapper}>{pokemons.map(({id,image, name, price})=>{
+                return (<PokeCard 
+                key = {id}
+                id={id}
+                image = {image}
+                name = {name}
+                price = {price}
+                handleLearnMore={handleLearnMore}
+                handleAddToCart ={addItemToCart}
+                isDisabled = {cartItem.some((item)=> item.id===id)}
+                />)
+                })}</div>
             <div className={styles.pagination}>
-                <MaterialPagination page={page} handlePageChange={handlePageChange}/>
+            <MaterialPagination page={page} handlePageChange={handlePageChange}/>
             </div>
+        </div>}
         </div>
     )
+};
+
+PokemonsLayout.propTypes = {
+    pokemons: PropTypes.arrayOf(PropTypes.object),
+    page: PropTypes.number,
+    handlePageChange: PropTypes.func,
+    handleLearnMore: PropTypes.func,
+    addItemToCart: PropTypes.func,
+    cartItem: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
 }
 
 export default PokemonsLayout
