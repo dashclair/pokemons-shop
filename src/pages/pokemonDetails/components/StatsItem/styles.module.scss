@@ -1,0 +1,12 @@
+.stats__wrapper {
+    display: flex;
+    align-items: center;
+    gap:10px;
+
+    .stats__wrapper__text {
+       
+        display:flex;
+        justify-content: space-between;
+        gap:100px;
+    }
+}

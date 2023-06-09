@@ -1,0 +1,63 @@
+.wrapper {
+    padding: 0 20px;
+    font-family: 'Roboto', sans-serif;
+
+    .item_wrapper {
+        padding: 0 15px;
+
+        .poke_wrapp {
+            padding-top:10px;
+            display: flex;
+            gap:325px;
+
+            .pokeDetails__image {
+                align-items: center;
+                width: 300px;
+                background-color: white;
+
+                .pokeDetails__image_img {
+                    margin:15px 50px;
+                
+                }
+            }
+
+            .pokeStats__wrapper {
+                margin: 24px 0;
+                padding: 15px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 100;
+                border-bottom: 1px solid lightgray;
+                border-top: 1px solid lightgray;
+                height: 200px;
+            }
+
+            .price {
+                display: flex;
+                justify-content: space-between;
+                padding-top:30px;
+                align-items: center;
+            }
+        }
+
+    }
+
+    .separator {
+        border:1px solid lightgrey;
+        width: 320px;
+        margin-top:30px;
+    }
+
+    .abilities__wrapper {
+        padding:30px 0 100px 0;
+        display: flex;
+        gap:50px;
+    
+        .description__text{
+            margin: 0 115px;
+         }
+    
+         .abilities__text {
+            padding-bottom: 10px;
+        }
+    }
+}

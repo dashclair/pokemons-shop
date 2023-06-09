@@ -1,0 +1,17 @@
+.wrapper {
+    padding:0 30px;
+
+    .pagination {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+    }
+};
+
+
+.pokemons_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap:35px;
+    justify-content: space-between;
+}

@@ -1,0 +1,19 @@
+.wrapper {
+    padding: 0 15px 30px 15px;
+
+    .form_wrapper {
+      border:1px solid black;
+      margin:30px 330px 50px 330px;
+      display:flex;
+      padding: 20px;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        margin: 0 auto;
+      }
+  }
+  
+}
+
+
