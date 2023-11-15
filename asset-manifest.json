@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/pokemons-shop/static/css/main.a441c1b3.css",
+    "main.js": "/pokemons-shop/static/js/main.955fe1fb.js",
+    "static/js/787.bb0c6e50.chunk.js": "/pokemons-shop/static/js/787.bb0c6e50.chunk.js",
+    "static/media/poke.png": "/pokemons-shop/static/media/poke.f0bc528a494875bcbf48.png",
+    "static/media/pngwing.com.png": "/pokemons-shop/static/media/pngwing.com.3e02f489cde4f1f24fb1.png",
+    "static/media/pokemon-23 (1).svg": "/pokemons-shop/static/media/pokemon-23 (1).17b2d8c1482f004467895f547c5a57f7.svg",
+    "static/media/sword-svgrepo-com.svg": "/pokemons-shop/static/media/sword-svgrepo-com.114f88a9a07b07dfd0195d661c44974f.svg",
+    "static/media/hpIcon.svg": "/pokemons-shop/static/media/hpIcon.94ee0e49fb5144989c7ac28077323e0c.svg",
+    "static/media/flash-svgrepo-com.svg": "/pokemons-shop/static/media/flash-svgrepo-com.681a78d78d82f34abbfb937dedb2f3da.svg",
+    "index.html": "/pokemons-shop/index.html",
+    "static/media/swords-svgrepo-com.svg": "/pokemons-shop/static/media/swords-svgrepo-com.49575c7c18f89c093fe3c9c81a6a553d.svg",
+    "static/media/shield-check-svgrepo-com.svg": "/pokemons-shop/static/media/shield-check-svgrepo-com.5c19e5d8d5a04851ed848591b9fedf8d.svg",
+    "static/media/shield-empty-svgrepo-com.svg": "/pokemons-shop/static/media/shield-empty-svgrepo-com.1c0f7a9b01c9b8ca1a0c7fb625b1208a.svg",
+    "main.a441c1b3.css.map": "/pokemons-shop/static/css/main.a441c1b3.css.map",
+    "main.955fe1fb.js.map": "/pokemons-shop/static/js/main.955fe1fb.js.map",
+    "787.bb0c6e50.chunk.js.map": "/pokemons-shop/static/js/787.bb0c6e50.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a441c1b3.css",
+    "static/js/main.955fe1fb.js"
+  ]
+}
