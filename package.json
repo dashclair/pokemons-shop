@@ -1,6 +1,7 @@
 {
   "name": "pokemons-shop",
   "version": "0.1.0",
+  "homepage": "https://dashclair.github.io/pokemons-shop",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.8",
@@ -26,6 +27,8 @@
     "yup": "^1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -50,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "prop-types": "^15.8.1"
   }
 }
